@@ -1,0 +1,5 @@
+td= image_tag user.avatar.url(:small)
+td= user.avatar.url
+td= link_to 'Edit', edit_user_registration_path
+td= link_to user.email, user
+
