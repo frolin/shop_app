@@ -10,11 +10,21 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass'
+gem 'bootswatch-rails'
+gem 'bootstrap_form'
 gem 'devise'
 gem 'pg'
 gem 'puma'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'activeadmin', github: 'gregbell/active_admin', branch: '"metasearch->ransack"'
+gem 'ransack',  github: 'avit/ransack', branch: 'rails4-dependencies'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
+
+
+#image
+gem "paperclip", "~> 4.2"
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_20]
