@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-
   has_attached_file :avatar,
                     :styles => {
                         :tiny => "25x25#",

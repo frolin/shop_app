@@ -1,5 +1,9 @@
-require 'rails_helper'
+require 'factory_girl'
 
-RSpec.describe Product, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Product do
+
+  it 'has a valid factory' do
+    Factory.create(:product).should be_valid
+  end
+
 end

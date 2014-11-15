@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  # before_filter :authenticate_admin!, :except => [:show]
+  before_action :set_product, only: [:show]
 
   respond_to :html, :xml, :json
 
@@ -24,7 +25,21 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     flash[:notice] = 'Product was successfully created.' if @product.save
-    respond_with(@product)
+
+    respond_to do |format|
+      if @product.save
+        format.html { redirect_to @product, notice: 'User was successfully created.' }
+        format.js   {}
+        format.json { render json: @product,
+                      status: :created,
+                      location: @product
+                    }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
   def update

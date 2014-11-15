@@ -1,29 +1,18 @@
-h1 Listing products
 
-= link_to 'New Product',  new_product_path,  class:"btn btn-sm label-info"
+h1 Products
 
-table.table.table-striped
-  thead
-    tr
-      th
-      th Title
-      th Description
-      th Price
-      th
-      th
-      th
+.row
+  - @products.each do |product|
+    .col-sm-6.col-md-4
+      .thumbnail
+        - if product.image.url
+          = link_to image_tag(product.image.url(:preview), class: 'img-rounded img-responsive'), product
+        .caption
+           h3 = link_to product.title, product
+           p = product.description
+           p.text-price
+             = product.price
 
-  tbody
-    - @products.each do |product|
-      tr
-        td = image_tag(product.image.url(:medium) ) if product.image.url
-        td = link_to product.title, product
-        td = product.description
-        td = product.price
-        td
-          ul
-            li = link_to 'Edit', edit_product_path(product), class: 'label label-info'
-            li = link_to 'Destroy', product, data: {:confirm => 'Are you sure?'}, :method => :delete ,class: 'label label-danger'
 
 
 

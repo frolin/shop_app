@@ -1,18 +1,16 @@
 /p#notice = notice
 
-p
-  strong Title:
+/== render (@product.line_items)
+h2
   = @product.title
 p
-  strong Description:
+  = image_tag(@product.image.url(:preview))
+p
   = @product.description
-p
-  strong Image url:
-  = image_tag(@product.image.url)
-p
-  strong Price:
-  = @product.price
 
-= link_to 'Edit', edit_product_path(@product)
-'|
-= link_to 'Back', products_path
+p
+  = @product.price
+h5
+  = link_to 'Edit', edit_product_path(@product)
+  '   |
+  = link_to 'Back', products_path

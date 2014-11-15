@@ -1,3 +1,19 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.text-price {
+
+  color: #ff5b52 !important;
+  font-size: 18px;
+text-align: right;
+
+
+}
+
+.text-price:after {
+
+  content: " $";
+
+}

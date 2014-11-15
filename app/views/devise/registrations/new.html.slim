@@ -1,17 +1,20 @@
 .authform
-  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f|
+  = bootstrap_form_for(resource, :as => resource_name,
+                    :url => registration_path(resource_name), :html => {:role => 'form', :id => "sign_up_user"}) do |f|
     h3 Sign up
     = devise_error_messages!
-    .form-group
-      = f.label :name
-      = f.text_field :name, :autofocus => true, class: 'form-control'
-    .form-group
-      = f.label :email
-      = f.email_field :email, class: 'form-control'
-    .form-group
-      = f.label :password
-      = f.password_field :password, class: 'form-control'
-    .form-group
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation, class: 'form-control'
-    = f.submit 'Sign up', :class => 'button right'
+
+    .form-group.input-group
+     /f.text_field :name,  class: 'form-control', hide_label: true, placeholder: 'Name:'
+
+     .i.input-group-addon.glyphicon.glyphicon.glyphicon-envelope
+     = f.email_field :email, class: 'form-control', hide_label: true, placeholder: 'Email:'
+
+    .input-group
+      i.input-group-addon.glyphicon.glyphicon.glyphicon-eye-close
+      = f.password_field :password, class: 'form-control', hide_label: true, placeholder: 'Password'
+    .form-group.input-group
+      i.input-group-addon.glyphicon.glyphicon.glyphicon-eye-close
+      = f.password_field :password_confirmation, class: 'form-control', hide_label: true, placeholder: 'Password confirmation'
+
+    = f.submit 'Sign up', :class => 'btn btn-info right'
