@@ -23,7 +23,7 @@ class Product < ActiveRecord::Base
 
   validates_attachment :image,
                        :presence => true,
-                       :size => { :in => 0..10.megabytes },
+                       :size => { :in => 0..50.megabytes },
                        :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff)$/,  message: 'URL должен указывать на изображение формата GIF, JPG или PNG.'}
 
 
