@@ -1,0 +1,66 @@
+
+
+.authform {
+
+  background-color: rgba(24, 49, 44, 0.20);
+  padding: 20px 80px;
+  max-width: 520px;
+  margin: 0 auto;
+
+
+  h3 {
+    text-align: center;
+    padding: 10px;
+    background-color: #F7F7F7;
+  }
+
+  .form-control {
+
+    transition: border-color 0.15s ease-in-out 0.5s, box-shadow 0.45s ease-in-out 0s;
+    color: #3e5a75;
+    font-size: 18px;
+
+  }
+
+  .form-control:focus {
+    border-color: #EFEFEF;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 3px rgba(44, 62, 80, 0.65);
+    outline: 0 none;
+  }
+
+  .form-centered{
+    @extend .well;
+    @extend .well-lg;
+
+    padding-bottom: 40px;
+  }
+  //.authform .well {background-color: rgba(145, 180, 244, 0.43);}
+  .right {
+    float: right !important;
+  }
+  .button {
+    @extend .btn;
+    @extend .btn-primary;
+  }
+  fieldset {
+    @extend .well;
+
+  }
+
+}
+#error_explanation {
+  @extend .alert;
+  @extend .alert-danger;
+}
+#error_explanation h2 {
+  font-size: 16px;
+}
+.button-xs {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-xs;
+}
+
+a.btn  {
+  color: #fff;
+}

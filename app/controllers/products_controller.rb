@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  # before_filter :authenticate_admin!, :except => [:show]
+  before_filter :authenticate_user!, except: [:index, :show]
   before_action :set_product, only: [:show]
 
   respond_to :html, :xml, :json

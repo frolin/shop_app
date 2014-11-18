@@ -8,12 +8,12 @@
       i.input-group-addon.glyphicon.glyphicon-user
       = f.email_field :email, :autofocus => true, class: 'form-control', hide_label: true, placeholder: 'Email:'
     .input-group.form-group
-     i.input-group-addon.glyphicon.glyphicon.glyphicon-eye-close
+     i.input-group-addon.glyphicon.glyphicon-eye-close
      = f.password_field :password, class: 'form-control', hide_label: true, placeholder: 'Password:'
     - if devise_mapping.recoverable?
-       = link_to "Forgot password?", new_password_path(resource_name)
+       = link_to "Forgot password?", new_password_path(resource_name), class: 'new_password'
 
-    = f.submit 'Sign in', :class => 'button right'
+    = f.submit 'Sign in', :class => 'btn btn-info right'
     - if devise_mapping.rememberable?
       .checkbox
         = f.check_box :remember_me

@@ -1,16 +1,17 @@
 /p#notice = notice
 
 /== render (@product.line_items)
-h2
+h1.product-title_show
   = @product.title
-p
-  = image_tag(@product.image.url(:preview))
-p
+ol.breadcrumb
+   li = link_to 'Home', root_path
+   li = link_to @product.id, root_path
+   li.active = @product.title
+= image_tag(@product.image.url(:rectangle), class: 'img-responsive')
+
+h3
   = @product.description
 
-p
-  = @product.price
-h5
-  = link_to 'Edit', edit_product_path(@product)
-  '   |
-  = link_to 'Back', products_path
+h4
+  = number_to_currency(@product.price)
+

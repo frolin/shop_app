@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 gem 'rails', '4.1.6'
-gem 'sass-rails', '~> 4.0.3'
+
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
@@ -9,20 +9,32 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
-gem 'bootstrap-sass'
-gem 'bootswatch-rails'
-gem 'bootstrap_form'
+
+
 gem 'devise'
 gem 'pg'
 gem 'puma'
-gem 'simple_form'
+
 gem 'slim-rails'
+
+
 
 gem 'inherited_resources', github: 'josevalim/inherited_resources'
 
+#FrontEnd
+gem 'sass-rails', '~> 4.0.3'
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
+gem 'autoprefixer-rails'
+  #image
+  gem "paperclip", "~> 4.2"
 
-#image
-gem "paperclip", "~> 4.2"
+#BackEnd
+gem 'activeadmin', github: 'activeadmin'
+
+#Forms
+gem 'simple_form'
+gem 'bootstrap_form'
 
 group :development do
   gem 'better_errors'
@@ -40,13 +52,14 @@ end
 group :development, :test do
   gem 'rspec-rails', '3.0.0'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'faker'
 end
 group :production do
   gem 'rails_12factor'
 end
 group :test do
   gem 'capybara', '2.4.1'
-  gem 'faker'
+
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'

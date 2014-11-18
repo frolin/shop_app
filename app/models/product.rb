@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+ belongs_to :category
 
   validates :title, :description, :image, :price, presence: true
   validates :title , uniqueness: true
@@ -12,12 +13,14 @@ class Product < ActiveRecord::Base
                         :thumb    => ['100x100#',  :jpg, :quality => 70],
                         :preview  => ['480x480#',  :jpg, :quality => 70],
                         :large    => ['600>',      :jpg, :quality => 70],
+                        :rectangle => ['1200x400#',  :jpg, :quality => 70],
                         :retina   => ['1200>',     :jpg, :quality => 30]
                     },
                     :convert_options => {
                         :thumb    => '-set colorspace sRGB -strip',
                         :preview  => '-set colorspace sRGB -strip',
                         :large    => '-set colorspace sRGB -strip',
+                        :rectangle    => '-set colorspace sRGB -strip',
                         :retina   => '-set colorspace sRGB -strip -sharpen 0x0.5'
                     }
 
@@ -28,7 +31,10 @@ class Product < ActiveRecord::Base
 
 
 
+def self.latest
+  Product.order(:updated_at).last
 
+end
 
 
 

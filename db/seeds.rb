@@ -1,3 +1,4 @@
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -11,14 +12,9 @@ require 'faker'
 require 'factory_girl'
 
 
-Product.destroy_all
+Product.delete_all
+puts "clear db"
 
-20.times do |t|
-Product.create!(
-    title: Faker::Lorem::words(4).join(" ") ,
-    description: Faker::Lorem::sentences(1).join(" ") ,
-    price: Faker::Commerce.price,
-    # image: File.open(Dir['app/assets/images/*.jpeg'].sample).join(" ")
-    image: File.open(Dir.glob(File.join(Rails.root, 'vendor/assets/fake_images', '*')).sample)
-)
+10.times do
+ puts  FactoryGirl.create(:product)
 end
