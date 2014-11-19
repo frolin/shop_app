@@ -1,6 +1,12 @@
 class Product < ActiveRecord::Base
  belongs_to :category
 
+ has_many :product_items
+
+ before_destroy :ensure_not_refernced_by_any_product_item
+ attr_accessor :delete_image
+ after_destroy { image.clear if delete_image == '0' }
+
   validates :title, :description, :image, :price, presence: true
   validates :title , uniqueness: true
 
@@ -11,7 +17,7 @@ class Product < ActiveRecord::Base
                     :url => "/system/:attachment/:id/:basename_:style.:extension",
                     :styles => {
                         :thumb    => ['100x100#',  :jpg, :quality => 70],
-                        :preview  => ['480x480#',  :jpg, :quality => 70],
+                        :preview  => ['420x380#',  :jpg, :quality => 70],
                         :large    => ['600>',      :jpg, :quality => 70],
                         :rectangle => ['1200x400#',  :jpg, :quality => 70],
                         :retina   => ['1200>',     :jpg, :quality => 30]
@@ -36,6 +42,16 @@ def self.latest
 
 end
 
+ private
+
+ def ensure_not_referenced_by_any_product_item
+    if products.empty?
+      return true
+    else
+      errors.add(:base, 'существуют товарные позиции')
+      return false
+    end
+ end
 
 
 end

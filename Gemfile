@@ -26,8 +26,13 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'autoprefixer-rails'
+
   #image
-  gem "paperclip", "~> 4.2"
+  gem 'paperclip'
+
+  #Graph
+  gem 'chartkick'
+  gem 'groupdate'
 
 #BackEnd
 gem 'activeadmin', github: 'activeadmin'

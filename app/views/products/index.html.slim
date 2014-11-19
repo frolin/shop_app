@@ -1,4 +1,5 @@
 
+
 h1.title Products
 
 
@@ -16,7 +17,8 @@ h1.title Products
              h4.product-price
                = number_to_currency(product.price)
              .product-buy.icon.glyphicon.glyphicon-shopping-cart
-              a href='#'
+              = button_to 'Put in Cart' , new_cart_path
+
 
 
 

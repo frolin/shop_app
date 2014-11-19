@@ -52,6 +52,11 @@ class ProductsController < ApplicationController
     respond_with(@product)
   end
 
+  def chart
+    render json: Product.group_by_day(:completed_at).count
+  end
+
+
   private
     def set_product
       @product = Product.find(params[:id])
