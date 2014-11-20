@@ -1,4 +1,9 @@
+
 class ProductsController < ApplicationController
+  include ProductsHelper
+
+  before_action :count_index_visits, only: [:index]
+
   before_filter :authenticate_user!, except: [:index, :show]
   before_action :set_product, only: [:show]
 
@@ -55,6 +60,8 @@ class ProductsController < ApplicationController
   def chart
     render json: Product.group_by_day(:completed_at).count
   end
+
+
 
 
   private

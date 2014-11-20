@@ -1,8 +1,9 @@
-class ProductItemsController < InheritedResources::Base
+class ProductItemsController < ApplicationController
   include CurrentCart
 
   before_action :set_cart, only: [:create]
   before_action :set_product_item, only: [:show, :edit, :update, :destroy]
+
 
   def create
 
@@ -10,11 +11,9 @@ class ProductItemsController < InheritedResources::Base
     @product_item = @cart.product_items.build(product: product)
 
     respond_to do |format|
-
       if @product_item.save
         format.html { redirect_to @product_item.cart,
-        notice: 'Product item was successfully created.' }
-
+                                   notice: 'Line item was successfully created.' }
         format.json { render action: 'show',
                              status: :created, location: @product_item }
       else
@@ -22,13 +21,14 @@ class ProductItemsController < InheritedResources::Base
         format.json { render json: @product_item.errors,
                              status: :unprocessable_entity }
       end
-
     end
+
 
   end
 
 
-  private
+
+    private
 
     def product_item_params
       params.require(:product_item).permit(:product_id, :cart_id)

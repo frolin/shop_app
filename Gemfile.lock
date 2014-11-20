@@ -166,6 +166,7 @@ GEM
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    logger (1.2.8)
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -336,6 +337,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   letter_opener
+  logger
   paperclip
   pg
   puma

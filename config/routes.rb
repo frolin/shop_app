@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
   resources :products
-  resources :product_items
+  resource :product_items
 
   resources :carts
 

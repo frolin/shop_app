@@ -1,11 +1,12 @@
-p#notice = notice
 
-Your Pragmatic
-  ul
-    @cart.product_items.each do |item| %>
-      li = item.product.title
+h2
+  Your Cart
+ul
+  - @cart.product_items.each do |item|
+    li = item.product.title
+
 
 
 = link_to 'Edit', edit_cart_path(@cart)
 '|
-= link_to 'Back', carts_path
+= link_to 'Back', root_path
