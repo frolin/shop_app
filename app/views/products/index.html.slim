@@ -2,10 +2,12 @@
 h1.title Products
 = report_index_visits
 
+/= link_to 'Edit Cart', cart_url(@cart)
+
 .row
-- cache ['store', Product.last]
+
   - @products.each do |product|
-     - cache ['entry', product]
+
       .col-sm-6.col-md-4
         .thumbnail
           .image-container

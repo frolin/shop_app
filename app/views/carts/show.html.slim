@@ -3,8 +3,11 @@ h2
   Your Cart
 ul
   - @cart.product_items.each do |item|
-    li = item.product.title
+      li = item.product.title
 
+      span = item.product_count
+
+= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }
 
 
 = link_to 'Edit', edit_cart_path(@cart)
