@@ -43,6 +43,7 @@ gem 'bootstrap_form'
 
 group :development do
   gem 'better_errors'
+  gem 'meta_request'
   gem 'binding_of_caller', :platforms=>[:mri_20]
   gem 'guard-bundler'
   gem 'guard-rails'
