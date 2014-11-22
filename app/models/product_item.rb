@@ -5,7 +5,7 @@ class ProductItem < ActiveRecord::Base
 
 
   def total_price
-    price * product_count
+    product.price * product_count
   end
 
 

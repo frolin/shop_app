@@ -1,11 +1,16 @@
 
 h2
   Your Cart
-ul
-  - @cart.product_items.each do |item|
-      li = item.product.title
-
-      span = item.product_count
+.container
+  table
+    = render @cart.product_items
+    /- @cart.product_items.each do |item|
+    /  tr
+    /    td = image_tag(item.product.image.url(:thumb))
+    /    td = item.product.title
+    /    td = item.product_count
+    /    td = number_to_currency(item.total_price)
+    td.total-proce = number_to_currency(@cart.total_price)
 
 = button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }
 
