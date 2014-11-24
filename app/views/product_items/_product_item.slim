@@ -1,0 +1,12 @@
+- if product_item == @current_item
+  tr#current_item
+    td.product-image = image_tag(product_item.product.image.url(:thumb))
+    td.product-title = product_item.product.title
+    td.product-count = product_item.product_count
+    td.total-price   = number_to_currency(product_item.total_price)
+- else
+  tr
+    td.product-image = image_tag(product_item.product.image.url(:thumb))
+    td.product-title = product_item.product.title
+    td.product-count = product_item.product_count
+    td.total-price = number_to_currency(product_item.total_price)

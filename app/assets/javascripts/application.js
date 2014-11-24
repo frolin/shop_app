@@ -16,7 +16,8 @@
 
 
 //= require bootstrap-sprockets
-//= require_self
-//= require_tree .
-
 //= require turbolinks
+
+//= require_self
+//= require_tre
+//= require_tree .
