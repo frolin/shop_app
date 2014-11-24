@@ -1,6 +1,9 @@
 
 class ProductsController < ApplicationController
   include ProductsHelper
+  include CurrentCart
+
+  before_action :set_cart
 
   before_action :count_index_visits, only: [:index]
 

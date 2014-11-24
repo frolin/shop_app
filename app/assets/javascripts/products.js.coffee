@@ -2,8 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #
-$(document).on 'page:load', ->
-  $('main').left
+#$(document).on 'page:load', ->
+#  $('main').left
 
 #$(document).on 'page:fetch', ->
 #  $('main').animate.fadeout(400).fadeIn(300)

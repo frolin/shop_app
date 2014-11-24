@@ -1,0 +1,22 @@
+h2 Ваша корзина
+
+table
+  thead
+    tr
+      th
+      th Title
+      th Count
+      th Price
+
+  = render cart.product_items.sort_by(&:id)
+  td
+  td
+  td Total:
+  td = number_to_currency(cart.total_price)
+
+.pull-right = button_to 'Empty cart',  cart, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-info empty-cart', remote: true
+  /
+  /
+  /= link_to 'Edit', edit_cart_path(cart)
+  /'|
+  /= link_to 'Back', root_path

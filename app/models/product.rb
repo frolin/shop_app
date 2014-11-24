@@ -5,9 +5,10 @@ class Product < ActiveRecord::Base
 
  before_destroy :ensure_not_refernced_by_any_product_item
  attr_accessor :delete_image
+
  after_destroy { image.clear if delete_image == '0' }
 
-  validates :title, :description, :image, :price, presence: true
+  validates :title, :description,  :price, presence: true
   validates :title , uniqueness: true
 
   validates :price, numericality: {greater_than_or_equal_to: 0.01}

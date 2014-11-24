@@ -1,7 +1,5 @@
 class CartsController < ApplicationController
   include CurrentCart
-
-
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
@@ -12,16 +10,12 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]
      session[:cart_id] = nil
     respond_to do |format|
-       format.html { redirect_to root_path,
-       notice: 'Теперь ваша корзина пуста!' }
+       format.html { redirect_to root_path}
+       format.js {render :layout => false}
       format.json { head :no_content }
     end
   end
 
-  def show
-
-
-  end
 
   private
     def cart_params

@@ -12,7 +12,16 @@ html
 
     header
       == render 'layouts/navigation'
+
     main[role="main"]
+
+      == render 'layouts/messages'
       .container-fluid
-        == render 'layouts/messages'
-        == yield
+        .raw
+          .col-sm-8.col-md-8.col-lg-8
+            == yield
+          #sidebar-wrapper
+            .sidebar-cart
+              .col-sm-3.col-md-3.col-lg-3.col-lg-offset-1
+                == render 'layouts/cart'
+

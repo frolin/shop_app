@@ -10,8 +10,8 @@ class ProductItemsController < InheritedResources::Base
     @product_item = @cart.add_product(product.id)
     respond_to do |format|
       if @product_item.save
-        format.html { redirect_to @product_item.cart,
-                                   notice: 'Line item was successfully created.' }
+        format.html { redirect_to products_url, notice: 'Line item was successfully created.' }
+        format.js  {@current_item = @product_item}
         format.json { render action: 'show',
                              status: :created, location: @product_item }
       else
@@ -33,6 +33,7 @@ def destroy
 end
 
     private
+
 # Never trust parameters from the scary internet, only allow the white
 # list through.
     def product_item_params

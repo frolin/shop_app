@@ -1,0 +1,5 @@
+if ($('#cart tr')) { $('#cart').slideDown(200).show('fade', 200) }
+    $('#cart').html("<%= escape_javascript render(@cart) %>");
+
+$('#current_item').css({'background-color':'yellow'}).
+animate({'background-color':'#EEE'}, 500).fadeIn(1000)
